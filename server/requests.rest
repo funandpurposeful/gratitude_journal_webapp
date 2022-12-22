@@ -1,0 +1,109 @@
+DELETE http://localhost:3001/step/delete/63593aa475acf1c463126e2a
+
+####
+
+
+GET http://localhost:3001/affirmations 
+
+
+####
+
+
+GET http://localhost:3001/gratitudes 
+
+####
+
+
+GET http://localhost:3001/steps 
+
+###
+
+GET http://localhost:3001/users 
+
+
+###
+POST http://localhost:3001/authenticate
+Content-Type:application/json
+
+{
+    "email": "elliot.caunce@hotmail.co.uk",
+    "password": "elly1234"
+}
+
+
+
+
+####
+
+POST http://localhost:3001/step/new
+Content-Type:application/json
+
+{
+    "step": "Solve a coding challange"
+
+}
+
+
+####
+
+POST http://localhost:3001/gratitude/new
+Content-Type:application/json
+
+{
+    "gratitude": "Love"
+
+}
+
+####
+
+POST http://localhost:3001/affirmation/new
+Content-Type:application/json
+
+{
+    "affirmation": "I am capable and smart"
+
+}
+
+###
+
+
+POST http://localhost:3001/user/new
+Content-Type:application/json
+
+{
+    "fname":  "Sabine",
+    "surname": "Lazuhina",
+    "email": "sabine.lazuhina@gmail.com",
+    "password": "abcdef123",
+    "confirmpassword": "abcdef123"
+
+}
+
+
+
+###
+PUT http://localhost:3001/step/update/6368f6cf2e537335e1d540aa
+Content-Type:application/json
+
+{
+    "step": "Go to the gym"
+
+}
+
+###
+PUT http://localhost:3001/gratitude/update/6369bcf5b4268f24d0c6e37b
+Content-Type:application/json
+
+{
+    "gratitude": "I'm grateful for the freedom I have"
+
+}
+
+###
+PUT http://localhost:3001/affirmation/update/636910db4c8e9a169715c8bc
+Content-Type:application/json
+
+{
+    "affirmation": "I'm determinated"
+
+}
