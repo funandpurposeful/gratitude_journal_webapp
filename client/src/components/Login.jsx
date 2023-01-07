@@ -3,9 +3,9 @@ import { useState} from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
-
-
+// import Header from "./Header";
+import md5 from "md5";
+// const bcrypt = require('bcrypt');
 
 
 function Login() {
@@ -41,7 +41,7 @@ function Login() {
 
           const relIndex = dataFetched.findIndex((obj => obj.email === user.email));
 
-          if (response.data[relIndex]["password"] === user.password) {
+          if (response.data[relIndex]["password"] === md5(user.password)) {
             navigate('/'); 
           } else {
             setPassword(true);

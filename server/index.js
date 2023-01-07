@@ -1,6 +1,8 @@
 const express = require("express")
 const mongoose = require('mongoose');
 const { Gratitude, Affirmation, Step, User } = require('./models/Logs')
+var md5 = require('md5');
+
 
 const cors = require('cors');
 
@@ -9,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/journalDB", {
+mongoose.connect("mongodb+srv://admin123:bali2023@cluster0.fkigrvg.mongodb.net/journalDB", {
     useNewUrlParser: true, 
     useUnifiedTopology:true
 })
@@ -139,8 +141,8 @@ app.post('/user/new', (req, res) => {
         fname:  req.body.fname,
         surname: req.body.surname,
         email: req.body.email,
-        password: req.body.password,
-        confirmpassword: req.body.confirmpassword
+        password: md5(req.body.password),
+        confirmpassword: md5(req.body.confirmpassword)
     });
     user.save();
     res.json(user);
@@ -209,6 +211,6 @@ app.put("/step/update/:id", async (req,res) => {
 
 
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("Server runs on the port 3001");
 });
