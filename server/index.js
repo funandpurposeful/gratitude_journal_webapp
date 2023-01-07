@@ -1,4 +1,5 @@
-const express = require("express")
+require("dotenv").config();
+const express = require("express");
 const mongoose = require('mongoose');
 const { Gratitude, Affirmation, Step, User } = require('./models/Logs')
 var md5 = require('md5');
@@ -10,8 +11,9 @@ const app= express();
 app.use(express.json());
 app.use(cors());
 
-
-mongoose.connect("mongodb+srv://admin123:bali2023@cluster0.fkigrvg.mongodb.net/journalDB", {
+const username = process.env.USER_NAME;
+const password = process.env.PASSWORD;
+mongoose.connect("mongodb+srv://" + username + ":" + password + "@cluster0.fkigrvg.mongodb.net/journalDB", {
     useNewUrlParser: true, 
     useUnifiedTopology:true
 })
@@ -90,15 +92,6 @@ app.get('/users', async (req, res) => {
 //         }
 //     })
 // })
-
-
-
-
-
-
-
-
-
 
 
 
